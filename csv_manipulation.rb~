@@ -1,0 +1,36 @@
+require 'csv'
+require 'pry'
+
+#read from .csv file
+file = File.open('sample_data.csv')
+csv_table = CSV.read("sample_data.csv")
+binding.pry
+
+#look at the desired colum
+published_column_index = 4
+header_row_index = 0
+
+#puts "initial bad row: #{csv_table[5]}"
+
+#for every row in the table
+index = 0
+for row in csv_table
+  if index != header_row_index #except the first header row
+    #if the column contains a bad value
+    if row[published_column_index] == "1"
+      #remove the row from the table
+      csv_table.delete_at(index)
+    end
+  end
+  index += 1
+end
+output = ''
+#output += csv_table[0]
+for line in csv_table do
+  output += CSV.generate_line(line)
+end
+p output
+file = File.open('new_table.csv', 'w+')
+file.write(output)
+file.close
+#binding.pry

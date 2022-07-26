@@ -1,0 +1,23 @@
+Publishing Script:
+
+1. Open the CSV file that is in the same folder as the script.  If multiple CSVs are in the folder, open the newest file.
+
+2. Remove all lines where the Published column is 1
+
+3. Remove all lines where the Images column is blank
+
+4. Search for the value “Direct URL” within each row.  If “Direct URL” is not found in the row or the cell to the right of “Direct URL” is blank, delete that row.
+
+5. Search each row for the cell that contains “merchant” (only “merchant”, no other text or values).  Take the value of the cell to the right of the “merchant” cell, copy it and paste it into the “Button” column.
+
+6. Add “Buy on “ in front of the text in the Button column.  The result should be something like “Buy on Walmart”.
+
+7. Referencing a “Blocked Words” csv within the same directory as the script, search for any of the terms on the Blocked Words list and delete them wherever they appear within the CSV.
+
+8. Change the value in the “Published” column to 1 for all remaining rows.
+
+9. Remove the SKU column.
+
+10. Save the file as a new CSV within an “Output” folder in the same folder as the script. The name of the CSV should be the date and time the script finished running.
+
+the "ID" in title seems to have a hidden character behind the I.
